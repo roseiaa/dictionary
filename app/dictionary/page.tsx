@@ -1,12 +1,10 @@
 import Header from "@/components/Header";
 import HomeScreen from "@/components/HomePage";
-import Link from "next/link";
 
-
-export default function Home() {
+export default function Dictionary() {
   return (
     <section>
-    <Header theme="purple"/>
+    <Header theme="white"/>
     <HomeScreen/>
     </section>
   );
