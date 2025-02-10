@@ -5,7 +5,7 @@ import { useState } from "react";
 
 export default function ThesaurusPage() {
   const [word, setWord] = useState<string>("");
-  const [data, setData] = useState<any>(null);
+  const [data, setData] = useState<string[] | null>(null);
   const [searchedWord, setSearched] = useState<string>("")
 
   return (

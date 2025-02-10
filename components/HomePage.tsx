@@ -4,9 +4,25 @@ import { dictionaryCall } from "@/apiCalls";
 import { useState } from "react";
 
 
+type WordData = {
+  word: string;
+  phonetics: string[];
+  meanings: {
+    partOfSpeech: string;
+    definitions: {
+      definition: string;
+      example?: string;
+      synonyms: string[];
+      antonyms: string[];
+    }[];
+  }[];
+}[];
+
+type DictionaryResponse = WordData | { error: string };
+
 export default function HomeScreen() {
   const [word, setWord] = useState<string>("");
-  const [wordData, setData] = useState<any>(null);
+  const [wordData, setData] = useState<DictionaryResponse | null>(null);
 
   return (
     <div className="flex flex-col justify-start content-center text-base items-center bg-[url(../app/img/background.jpg)] bg-cover h-dvh p-6 theme-white ">
