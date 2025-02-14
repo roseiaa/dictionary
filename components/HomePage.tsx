@@ -4,21 +4,32 @@ import { dictionaryCall } from "@/apiCalls";
 import { useState } from "react";
 
 
-type WordData = {
-  word: string;
-  phonetics: string[];
-  meanings: {
-    partOfSpeech: string;
-    definitions: {
-      definition: string;
-      example?: string;
-      synonyms: string[];
-      antonyms: string[];
-    }[];
-  }[];
-}[];
+interface Phonetic {
+  text: string;
+}
 
-type DictionaryResponse = WordData | { error: string };
+interface Definition {
+  definition: string;
+  example?: string;
+  synonyms: string[];
+  antonyms: string[];
+}
+
+interface Meaning {
+  partOfSpeech: string;
+  definitions: Definition[];
+}
+
+interface WordEntry {
+  word: string;
+  phonetics: Phonetic[];
+  meanings: Meaning[];
+}
+
+type DictionaryResponse = WordEntry[] | { error: string };
+
+
+
 
 export default function HomeScreen() {
   const [word, setWord] = useState<string>("");
@@ -55,7 +66,7 @@ export default function HomeScreen() {
           </button>
         </div>
       </div>
-      {wordData && !wordData.error ? (
+      {wordData && Array.isArray(wordData) ? (
         <div className="text-base mt-4 overflow-auto">
           <h2 className="text-2xl font-bold">{wordData[0].word}</h2>
 
@@ -65,10 +76,10 @@ export default function HomeScreen() {
             </p>
           )}
 
-          {wordData[0].meanings.map((meaning: any, index: number) => (
+          {wordData[0].meanings.map((meaning,  index) => (
             <div key={index} className="my-4 p-4 bg-secondary rounded-md ">
               <h3 className="text-xl font-semibold text-base">{meaning.partOfSpeech}</h3>
-              {meaning.definitions.map((def: any, defIndex: number) => (
+              {meaning.definitions.map((def, defIndex) => (
                 <div key={defIndex} className="mt-2 text-base">
                   <p>🔹 {def.definition}</p>
                   {def.example && (
@@ -88,11 +99,6 @@ export default function HomeScreen() {
                   )}
                 </div>
               ))}
-              {meaning.synonyms && meaning.synonyms.length > 0 && (
-                <p className="text-white">
-                  Synonyms: {meaning.synonyms.join(", ")}
-                </p>
-              )}
             </div>
           ))}
         </div>

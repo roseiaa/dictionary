@@ -5,16 +5,20 @@
 @layer base {
   :root {
     --color-primary: hsl(0, 0%, 0%);
-    --color-secondary: hsl(0, 0%, 34%);
+    --color-secondary: hsl(0, 0%, 100%);
     --color-text-base: hsl(0, 0%, 100%);
     --color-bg-primary: hsl(0, 0%, 100%);
 
   }
+  * {
+    @apply transition-colors duration-500 ease-in-out;
+  }
 }
+
 
 .theme-black {
   --color-primary: hsl(0, 0%, 0%);
-  --color-secondary: hsl(0, 0%, 50%);
+  --color-secondary: hsl(0, 100%, 100%);
 
 }
 

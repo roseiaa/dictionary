@@ -55,7 +55,7 @@ export default function ThesaurusPage() {
               </ul>
             </div>
           ) : (
-            <p>No synonyms found.</p>
+            <p className="font-semibold text-white-500 bg-red-500 rounded-md mt-2 px-2">No synonyms found.</p>
           )}
         </div>
       )}
