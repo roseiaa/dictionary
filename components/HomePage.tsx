@@ -84,7 +84,7 @@ export default function HomeScreen() {
                   <p>🔹 {def.definition}</p>
                   {def.example && (
                     <p className="italic text-gray-500">
-                      Example: &quot{def.example}&quot
+                      Example: &quot;{def.example}&quot;
                     </p>
                   )}
                   {def.synonyms.length > 0 && (
