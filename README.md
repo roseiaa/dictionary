@@ -21,6 +21,8 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 To use the thesaurus api, you must create an account on API Ninjas and use the API key provided. 
 [ThesaurusAPI](https://www.api-ninjas.com/api/thesaurus)
 
+you must then create a .env.local file and use the API key provided by the above link. The development server should then work as intended. 
+
 To view the hosted version of the app please click below
 
-[Hosted-Version]
+[Hosted-Version](https://67af2f62a22842a0e0caab9c--dictionary-thesaurus.netlify.app/)
