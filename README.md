@@ -25,4 +25,4 @@ you must then create a .env.local file and use the API key provided by the above
 
 To view the hosted version of the app please click below
 
-[Hosted-Version](https://67af2f62a22842a0e0caab9c--dictionary-thesaurus.netlify.app/)
+[Hosted-Version](https://dictionary-thesaurus.netlify.app/dictionary)
